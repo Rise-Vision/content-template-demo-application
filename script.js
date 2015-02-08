@@ -1,5 +1,6 @@
 
 var startingHeight = document.getElementById("navigation").offsetHeight;
+var deviceHeight = window.innerHeight;
 
 
 $(document).ready(function(){
@@ -12,12 +13,13 @@ $(document).ready(function(){
     center: true,
     items:2,
     loop:true,
-    margin:10,
+    margin:30,
     dots:false,
+    touchDrag:true,
     // autoplay:true,
     responsive:{
-        600:{
-            items:4
+        300:{
+            items:8
         }
     }
 });
@@ -55,10 +57,10 @@ var navOpen = false;
  $(".holder--menubutton img").click(function() {
  	var elementHeight = $('#navigation').outerHeight();
       if (navOpen == false) {
-           $("#navigation").animate({bottom:"0"});
+           $("#navigation").animate({top:deviceHeight-elementHeight});
            navOpen = true;
       } else {
-           $("#navigation").animate({bottom:-elementHeight});
+           $("#navigation").animate({top:'100%'});
            navOpen = false;
       }
  });

@@ -49,20 +49,19 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
  	left:0;
  	z-index: 50;
  	opacity:0;
+ 	text-align: center;
  }
 
- .display--main .holder--loader .loader {
+ .display--main .holder--loader img {
  	width:10vw;
  	height:10vw;
  	border-radius: 50%;
- 	border:1vw solid transparent;
- 	border-left-color: #888;
- 	border-right-color: #888;
  	position: relative;
  	margin:0 auto;
  	margin-top: 25%;
- 	animation:spin 1s infinite;
- 	-webkit-animation:spin 1s infinite;
+ 	opacity:0.5;
+ 	animation:spin 1.5s infinite;
+ 	-webkit-animation:spin 1.5s infinite;
  }
 
  /*.loaded {
@@ -96,9 +95,11 @@ iframe {
 .display--navigation {
 	position: absolute;
 	left:0;
+	top:100%;
 	background: rgba(0,0,0,0.2);
-	padding: 10px 0;
+/*	padding: 10px 0;*/
 	z-index:500;
+	width:120%;
 }
 
 .display--navigation .holder--menubutton {
@@ -119,7 +120,7 @@ iframe {
 }
 
 .display--navigation .holder--qrcode {
-	max-width:200px;
+	max-width:170px;
 	width:100%;
 	height:100%;
 	background: rgba(0,0,0,0.2);
@@ -131,14 +132,14 @@ iframe {
 }
 
 .display--navigation .holder--qrcode img {
-	max-width:150px;
+	max-width:100px;
 	width:100%;
-	max-height:150px;
+	max-height:100px;
 	height:100%;
 	position: absolute;
 	top:50%;
 	left:50%;
-	transform:translate(-50%,-60%);
+	transform:translate(-50%,-50%);
 }
 
 .display--navigation .holder--qrcode p {
@@ -152,18 +153,22 @@ iframe {
  .owl-carousel {
  	left: 0;
  	/*background: rgba(0,0,20,0.5);*/
- 	padding:20px 0;
+ 	/*padding:20px 0;*/
  }
 
  .owl-carousel .nav--holder {
- 	max-width: 500px;
+ 	max-width: 150px;
  	width:100%; 
+ 	/*padding:10px 0;*/
  }
 
  .owl-carousel div img {
  	opacity:0.3;
- 	width:100%;
- 	
+ 	width:100%; 	
+ }
+
+ .owl-stage {
+ 	padding:30px 0;
  }
 
  .selected {
@@ -193,15 +198,21 @@ Media Queries
 /* 3840x2160 */
 @media screen and (min-width: 2200px) {
 
-	/*.display--navigation .holder--qrcode img {
-	top:50%;
-	left:50%;
-	transform:translate(-50%,-50%);
-}*/
 
+.owl-carousel .nav--holder {
+ 	max-width: 300px;
+ 	/*margin-left:-90px; */
+ }
+
+
+.display--navigation .holder--qrcode img {
+	max-width:150px;
+	max-height:150px;
+	transform:translate(-50%,-60%);
+   
+}
 .display--navigation .holder--qrcode p {
 	font-size: 0.8;
-	margin-top: 130%;
+	margin-top: 110%;
 }
-   
 }
