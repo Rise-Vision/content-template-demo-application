@@ -90,7 +90,11 @@ $(document).ready(function(){
 
 };
 
-autoPlayControl();
+
+//call the autoPlayControl function once on initial page load
+var initialCall = setTimeout(autoPlayControl,500);
+
+
 
 	var restartAutoPlay = function(){
 		console.log('test');
