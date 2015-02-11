@@ -123,7 +123,7 @@ iframe {
 	max-width:170px;
 	width:100%;
 	height:100%;
-	background: rgba(0,0,0,0.7);
+	background: transparent;
 	opacity: 1;
 	position: absolute;
 	left:0;
@@ -133,42 +133,42 @@ iframe {
 
 .display--navigation .holder--qrcode img {
 	max-width:100px;
-	width:100%;
+	width:70%;
 	max-height:100px;
-	height:100%;
+	height:70%;
 	position: absolute;
 	top:50%;
 	left:50%;
-	transform:translate(-50%,-60%);
+	transform:translate(-50%,-55%);
 }
 
 .display--navigation .holder--qrcode p {
 	text-align: center;
 	color:#fff;
 	text-transform: uppercase;
-	margin-top: 70%;
+	margin-top: 60%;
+	font-size: 0.7vw;
 }
 
 
  .owl-carousel {
- 	left: 0;
- 	/*background: rgba(0,0,20,0.5);*/
- 	/*padding:20px 0;*/
+ 	left: 12%;
  }
 
  .owl-carousel .nav--holder {
  	max-width: 150px;
  	width:100%; 
- 	/*padding:10px 0;*/
+ 	padding:10px 0;
  }
 
  .owl-carousel div img {
  	opacity:0.3;
+ 	min-width: 180px;
  	width:100%; 	
  }
 
  .owl-stage {
- 	padding:30px 0;
+ 	/*padding:30px 0;*/
  }
 
  .selected {
@@ -199,12 +199,6 @@ Media Queries
 @media screen and (min-width: 2200px) {
 
 
-.owl-carousel .nav--holder {
- 	max-width: 300px;
- 	/*margin-left:-90px; */
- }
-
-
 .display--navigation .holder--qrcode img {
 	max-width:150px;
 	max-height:150px;
@@ -212,7 +206,23 @@ Media Queries
    
 }
 .display--navigation .holder--qrcode p {
-	font-size: 0.8;
-	margin-top: 110%;
+	margin-top: 100%;
+	font-size: 0.5vw;
 }
+
+.owl-carousel {
+ 	left: 6%;
+ }
+
+.owl-carousel .nav--holder {
+ 	max-width: 300px;
+ 	/*margin-left:-90px; */
+ }
+
+ .owl-carousel div img {
+ 	min-width: 370px;
+ 	width:100%;
+}
+
+
 }
