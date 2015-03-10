@@ -66,11 +66,13 @@ $(document).ready(function(){
 
 	var currentWebsite = 1;
 	var length = websites.length;
+	var isRunning = true
 
-	var autoPlayControl = function(){
-		autoPlay = setInterval(function(){
+
+	function autoPlayer(){
 		$('.display--main iframe').attr('src',websites[currentWebsite]);
 		currentWebsite++;
+		
 
 
 		//show the loader image and remove on page load
@@ -86,37 +88,38 @@ $(document).ready(function(){
 			currentWebsite = 0;
 		} 
 
-	}, 12000);
 
-};
+
+	};
+
+	var autoPlayControl = setInterval(autoPlayer, 12000);
+
 
 
 //call the autoPlayControl function once on initial page load
-var initialCall = setTimeout(autoPlayControl,500);
+	// var initialCall = setTimeout(autoPlayControl,500);
+	// autoPlayControl();
+
+	// var restartAutoPlay = function(){
+	// 	console.log('test');
+	// 	autoPlayControl();
+	// }
 
 
+//function to display the full website when thumbnail is clicked, and highlight clicked thumbnail	
 
-	var restartAutoPlay = function(){
-		console.log('test');
-		autoPlayControl();
-	}
+	function displayWebsite(){
 
-	$('.owl-carousel div img').on('click',function(){
 		if($('.owl-carousel div img').hasClass('selected')){
 			$('.owl-carousel div img').removeClass('selected');
 		}
 
+		clearInterval(autoPlayControl);
+		autoPlayControl = setInterval(autoPlayer, 12000);
+	
 		//add opacity of 1 to selected img tag
-		$(this).addClass('selected');
-
-		//stop autoplay of websites
-		var clearAutoPlay = clearInterval(autoPlay);
-
-		//restart autoplay after 20s of inactivity
 		
-		clearTimeout(restartTimer);
-		var restartTimer = setTimeout(restartAutoPlay, 1000);
-
+		$(this).addClass('selected');
 
 		//show the loader image and remove on page load
 		$('.display--main .holder--loader').css('opacity','1');
@@ -129,7 +132,38 @@ var initialCall = setTimeout(autoPlayControl,500);
 		var mainImage = $(this).data('full');
 		$('.display--main iframe').attr('src',mainImage);
 
-		});
+		// isRunning = false 
+		// if (!isRunning){
+		// 	restartSlideshow();
+		// 	isRunning = true;
+		// }
+
+		};
+
+	// function restartSlideshow(){
+	// 	//stop autoplay of websites
+	// 	var clearAutoPlay = clearInterval(autoPlay);
+		
+	// 	//restart autoplay after 20s of inactivity
+	// 	var restartTimer = setTimeout(restartAutoPlay, 2000);
+		
+	// };
+
+
+	$('.owl-carousel div img').on('click',displayWebsite);
+	// $('.owl-carousel div img').on('click',restartSlideshow);
+		
+
+		//prevent double click errors
+
+		// $(this).unbind('click');
+
+		
+
+		
+
+		
+
 
 //controls for the navigation menu open/close
 var navOpen = false;

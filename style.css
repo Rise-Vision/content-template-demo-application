@@ -173,6 +173,7 @@ iframe {
 
  .selected {
  	opacity:1 !important;
+	pointer-events:none;
  }
 
 /*=======
